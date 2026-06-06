@@ -12,7 +12,7 @@ export default function Footer() {
           <div>
             <div className="flex items-center gap-3 mb-4">
               <img
-                src="https://media.db.com/images/public/user_68acaa9b8909fe4198c5378a/ce23facb0_08A65D47-47E1-4E89-96D1-EAEA42D029CD.png"
+                src="/images/logo-navbar.png"
                 alt="Marco Polo Aquatics"
                 className="h-10 w-10 rounded-lg object-cover"
               />

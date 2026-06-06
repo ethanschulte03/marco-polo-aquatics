@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
-const IMG_LIFEGUARD = "https://media.db.com/images/public/6a21f0929c99a67411376477/8605ce3b7_Screenshot2026-06-04at61142PM.png";
-const IMG_MASCOT = "https://media.db.com/images/public/6a21f0929c99a67411376477/96f3c06e7_marcopoloimage.png";
+const IMG_LIFEGUARD = "/images/hero-lifeguard.jpg";
+const IMG_MASCOT = "/images/mascot-main.jpg";
 
 export default function LifeguardShowcase() {
   return (
@@ -45,7 +45,7 @@ export default function LifeguardShowcase() {
               className="rounded-2xl overflow-hidden shadow-xl flex items-center justify-center bg-secondary/10"
               style={{ minHeight: "350px" }}>
               
-              <img src={IMG_LIFEGUARD} alt="Marco Polo Aquatics Lifeguard" className="w-full h-full object-contain object-center my-20" />
+              <img src={IMG_LIFEGUARD} alt="Marco Polo Aquatics Lifeguard" className="w-full h-full object-cover object-center my-20" />
             </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -55,7 +55,7 @@ export default function LifeguardShowcase() {
               className="rounded-2xl overflow-hidden shadow-xl flex items-center justify-center bg-secondary/10"
               style={{ minHeight: "350px" }}>
               
-              <img src={IMG_MASCOT} alt="Marco Polo Aquatics" className="w-full h-full object-contain object-center" />
+              <img src={IMG_MASCOT} alt="Marco Polo Aquatics" className="w-full h-full object-cover object-center" />
             </motion.div>
           </div>
         </div>

@@ -23,13 +23,11 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-3 group">
           <img
-            src="https://media.db.com/images/public/user_68acaa9b8909fe4198c5378a/ce23facb0_08A65D47-47E1-4E89-96D1-EAEA42D029CD.png"
+            src="/images/logo-navbar.png"
             alt="Marco Polo Aquatics"
-            className="h-10 w-10 rounded-lg object-cover"
+            className="h-14 w-auto"
           />
-          <span className="font-display font-bold text-lg tracking-tight text-secondary">
-            Marco Polo Aquatics
-          </span>
+
         </Link>
 
         {/* Desktop */}

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
-const HERO_IMG = "https://media.db.com/images/public/6a21f0929c99a67411376477/cb5492631_generated_02682edc.png";
+const HERO_IMG = "/images/banner-lesson.jpg";
 
 export default function CTASection() {
   return (

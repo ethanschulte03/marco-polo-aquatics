@@ -5,9 +5,9 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { GraduationCap, Shield, MapPin, ArrowRight } from "lucide-react";
 
-const LOGO_IMG = "https://media.db.com/images/public/6a21f0929c99a67411376477/1d87dddb6_08A65D47-47E1-4E89-96D1-EAEA42D029CD.png";
-const LESSONS_IMG = "https://media.db.com/images/public/6a21f0929c99a67411376477/bc56ad898_generated_2e689369.png";
-const MASCOT_IMG = "https://media.db.com/images/public/6a21f0929c99a67411376477/5134809a5_Screenshot2026-06-05at12753PM.png";
+const LOGO_IMG = "/images/logo-large.png";
+const LESSONS_IMG = "/images/hero-group-lesson.jpg";
+const MASCOT_IMG = "/images/card-private-lesson.jpg";
 
 export default function HeroSection() {
   return (
@@ -109,7 +109,7 @@ export default function HeroSection() {
           style={{ width: "min(400px, 92vw)", minHeight: "450px" }}
         >
           <img
-            src="https://media.db.com/images/public/6a21f0929c99a67411376477/5134809a5_Screenshot2026-06-05at12753PM.png"
+            src="/images/card-private-lesson.jpg"
             alt="Marco Polo Aquatics character"
             className="w-full h-full object-contain object-center"
           />

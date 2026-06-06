@@ -4,8 +4,8 @@ import React from "react";
 import { motion } from "framer-motion";
 import { BadgeCheck, Waves, GraduationCap } from "lucide-react";
 
-const LOGO_IMG = "https://media.db.com/images/public/6a21f0929c99a67411376477/1d87dddb6_08A65D47-47E1-4E89-96D1-EAEA42D029CD.png";
-const MASCOT_LIFEGUARD_IMG = "https://media.db.com/images/public/6a21f0929c99a67411376477/8605ce3b7_Screenshot2026-06-04at61142PM.png";
+const LOGO_IMG = "/images/mascot-main.jpg";
+const MASCOT_LIFEGUARD_IMG = "/images/lifeguard-walking.jpg";
 
 export default function AboutSection() {
   return (

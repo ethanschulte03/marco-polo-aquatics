@@ -5,10 +5,10 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 
-const IMG_UNDERWATER = "https://media.db.com/images/public/6a21f0929c99a67411376477/a9c2737a1_Screenshot2026-06-05at12823PM.png";
-const IMG_GROUP = "https://media.db.com/images/public/6a21f0929c99a67411376477/49171e174_Screenshot2026-06-05at12838PM.png";
-const IMG_PRIVATE = "https://media.db.com/images/public/6a21f0929c99a67411376477/135f434e7_Screenshot2026-06-05at12831PM.png";
-const IMG_BACKFLOAT = "https://media.db.com/images/public/6a21f0929c99a67411376477/d2cc2da9e_Screenshot2026-06-05at12810PM.png";
+const IMG_UNDERWATER = "/images/card-underwater.jpg";
+const IMG_GROUP = "/images/card-semi-private.jpg";
+const IMG_PRIVATE = "/images/card-high-five.jpg";
+const IMG_BACKFLOAT = "/images/card-floating.jpg";
 
 function ImageCard({ src, alt, animateProps, delay = 0 }) {
   return (
@@ -19,7 +19,7 @@ function ImageCard({ src, alt, animateProps, delay = 0 }) {
       className="rounded-2xl overflow-hidden shadow-xl flex items-center justify-center bg-secondary/10"
       style={{ minHeight: "350px" }}
     >
-      <img src={src} alt={alt} className="w-full h-full object-contain object-center" />
+      <img src={src} alt={alt} className="w-full h-full object-cover object-center" />
     </motion.div>
   );
 }
