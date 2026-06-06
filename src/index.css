@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 213 62% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 213 62% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 213 62% 11%;
+    --primary: 189 94% 53%;
+    --primary-foreground: 213 62% 11%;
+    --secondary: 213 62% 11%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 210 30% 95%;
+    --muted-foreground: 213 20% 45%;
+    --accent: 38 92% 50%;
+    --accent-foreground: 213 62% 11%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 210 20% 90%;
+    --input: 210 20% 90%;
+    --ring: 189 94% 53%;
+    --chart-1: 189 94% 53%;
+    --chart-2: 213 62% 11%;
+    --chart-3: 38 92% 50%;
+    --chart-4: 189 60% 70%;
+    --chart-5: 213 40% 30%;
+    --radius: 0.75rem;
+    --font-heading: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+    --font-body: 'Inter', ui-sans-serif, system-ui, sans-serif;
+    --font-display: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --sidebar-background: 213 62% 11%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 189 94% 53%;
+    --sidebar-primary-foreground: 213 62% 11%;
+    --sidebar-accent: 213 50% 18%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 213 40% 20%;
+    --sidebar-ring: 189 94% 53%;
+  }
+
+  .dark {
+    --background: 213 62% 7%;
+    --foreground: 210 40% 98%;
+    --card: 213 62% 11%;
+    --card-foreground: 210 40% 98%;
+    --popover: 213 62% 11%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 189 94% 53%;
+    --primary-foreground: 213 62% 11%;
+    --secondary: 213 40% 20%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 213 40% 15%;
+    --muted-foreground: 210 20% 60%;
+    --accent: 38 92% 50%;
+    --accent-foreground: 213 62% 11%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 213 40% 20%;
+    --input: 213 40% 20%;
+    --ring: 189 94% 53%;
+    --chart-1: 189 94% 53%;
+    --chart-2: 210 40% 98%;
+    --chart-3: 38 92% 50%;
+    --chart-4: 189 60% 40%;
+    --chart-5: 213 20% 60%;
+    --sidebar-background: 213 62% 7%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 189 94% 53%;
+    --sidebar-primary-foreground: 213 62% 11%;
+    --sidebar-accent: 213 50% 14%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 213 40% 15%;
+    --sidebar-ring: 189 94% 53%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body;
+    font-size: 18px;
+    line-height: 1.6;
+  }
+}
+
+/* Caustic water animation */
+@keyframes caustics {
+  0% { background-position: 0% 0%; }
+  50% { background-position: 100% 100%; }
+  100% { background-position: 0% 0%; }
+}
+
+.caustic-bg {
+  background: radial-gradient(ellipse at 20% 50%, rgba(34, 211, 238, 0.08) 0%, transparent 50%),
+              radial-gradient(ellipse at 80% 20%, rgba(34, 211, 238, 0.06) 0%, transparent 50%),
+              radial-gradient(ellipse at 60% 80%, rgba(34, 211, 238, 0.04) 0%, transparent 50%);
+  background-size: 200% 200%;
+  animation: caustics 15s ease-in-out infinite;
+}
+
+/* Ripple button effect */
+.ripple-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple-btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at var(--ripple-x, 50%) var(--ripple-y, 50%), rgba(255,255,255,0.3) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.ripple-btn:hover::after {
+  opacity: 1;
+}
+
+/* Glass morphism */
+.glass {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
