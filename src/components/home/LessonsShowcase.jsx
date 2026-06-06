@@ -1,27 +1,14 @@
-
 import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 
-const IMG_UNDERWATER = "/images/card-underwater.jpg";
-const IMG_GROUP = "/images/card-semi-private.jpg";
-const IMG_PRIVATE = "/images/card-high-five.jpg";
-const IMG_BACKFLOAT = "/images/card-floating.jpg";
-
-function ImageCard({ src, alt, animateProps, delay = 0 }) {
-  return (
-    <motion.div
-      {...animateProps}
-      viewport={{ once: true }}
-      transition={{ delay }}
-      className="rounded-2xl overflow-hidden shadow-xl"
-      style={{ aspectRatio: "4/3" }}
-    >
-      <img src={src} alt={alt} className="w-full h-full object-cover" style={{ objectPosition: "center 60%" }} />
-    </motion.div>
-  );
-}
+const IMGS = [
+  { src: "/images/card-floating.jpg",      alt: "Back float lesson" },
+  { src: "/images/card-kickboard.jpg",     alt: "Kickboard lesson" },
+  { src: "/images/card-group-lesson.jpg",  alt: "Group swim lesson" },
+  { src: "/images/card-underwater.jpg",    alt: "Underwater skills" },
+];
 
 export default function LessonsShowcase() {
   return (
@@ -41,14 +28,25 @@ export default function LessonsShowcase() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-          <ImageCard src={IMG_PRIVATE} alt="Private swim lesson" animateProps={{ initial: { opacity: 0, x: -20 }, whileInView: { opacity: 1, x: 0 } }} />
-          <ImageCard src={IMG_BACKFLOAT} alt="Learning to float" animateProps={{ initial: { opacity: 0, x: 20 }, whileInView: { opacity: 1, x: 0 } }} delay={0.1} />
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
-          <ImageCard src={IMG_GROUP} alt="Group swim lesson" animateProps={{ initial: { opacity: 0, x: -20 }, whileInView: { opacity: 1, x: 0 } }} delay={0.1} />
-          <ImageCard src={IMG_UNDERWATER} alt="Underwater swim lesson" animateProps={{ initial: { opacity: 0, x: 20 }, whileInView: { opacity: 1, x: 0 } }} delay={0.2} />
+        <div className="grid grid-cols-2 gap-4 mb-10">
+          {IMGS.map((img, i) => (
+            <motion.div
+              key={img.src}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className="rounded-2xl overflow-hidden shadow-xl"
+              style={{ aspectRatio: "1/1" }}
+            >
+              <img
+                src={img.src}
+                alt={img.alt}
+                className="w-full h-full object-cover"
+                style={{ objectPosition: "center center" }}
+              />
+            </motion.div>
+          ))}
         </div>
 
         <motion.div
