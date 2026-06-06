@@ -15,10 +15,10 @@ function ImageCard({ src, alt, animateProps, delay = 0 }) {
       {...animateProps}
       viewport={{ once: true }}
       transition={{ delay }}
-      className="rounded-2xl overflow-hidden shadow-xl flex items-center justify-center bg-secondary/10"
-      style={{ minHeight: "350px" }}
+      className="rounded-2xl overflow-hidden shadow-xl"
+      style={{ aspectRatio: "4/3" }}
     >
-      <img src={src} alt={alt} className="w-full h-full object-cover object-center" />
+      <img src={src} alt={alt} className="w-full h-full object-cover" style={{ objectPosition: "center 60%" }} />
     </motion.div>
   );
 }
