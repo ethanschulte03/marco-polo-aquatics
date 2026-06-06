@@ -1,0 +1,22 @@
+{
+  "name": "InterestedFamily",
+  "type": "object",
+  "properties": {
+    "email": {
+      "type": "string",
+      "description": "Email address"
+    },
+    "name": {
+      "type": "string",
+      "description": "Name (optional)"
+    },
+    "source": {
+      "type": "string",
+      "default": "homepage",
+      "description": "Where they signed up"
+    }
+  },
+  "required": [
+    "email"
+  ]
+}

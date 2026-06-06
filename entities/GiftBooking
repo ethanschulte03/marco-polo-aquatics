@@ -1,0 +1,60 @@
+{
+  "name": "GiftBooking",
+  "type": "object",
+  "properties": {
+    "purchaser_name": {
+      "type": "string",
+      "description": "Name of person purchasing the gift"
+    },
+    "purchaser_email": {
+      "type": "string",
+      "description": "Email of person purchasing the gift"
+    },
+    "recipient_name": {
+      "type": "string",
+      "description": "Name of the gift recipient"
+    },
+    "lesson_type": {
+      "type": "string",
+      "enum": [
+        "Private",
+        "Semi-Private",
+        "Mommy & Me"
+      ],
+      "description": "Type of lesson being gifted"
+    },
+    "lesson_duration": {
+      "type": "string",
+      "enum": [
+        "30 min",
+        "60 min"
+      ],
+      "description": "Duration of the gifted lesson"
+    },
+    "message": {
+      "type": "string",
+      "description": "Personal message from purchaser"
+    },
+    "gift_code": {
+      "type": "string",
+      "description": "Unique redemption code"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "redeemed",
+        "expired"
+      ],
+      "default": "pending",
+      "description": "Gift redemption status"
+    }
+  },
+  "required": [
+    "purchaser_name",
+    "purchaser_email",
+    "recipient_name",
+    "lesson_type",
+    "lesson_duration"
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "name": "WaitlistEntry",
+  "type": "object",
+  "properties": {
+    "parent_name": {
+      "type": "string",
+      "description": "Parent or guardian full name"
+    },
+    "parent_email": {
+      "type": "string",
+      "description": "Parent email address"
+    },
+    "parent_phone": {
+      "type": "string",
+      "description": "Parent phone number"
+    },
+    "preferred_dates": {
+      "type": "string",
+      "description": "Preferred days or time range"
+    },
+    "lesson_type": {
+      "type": "string",
+      "enum": [
+        "Private",
+        "Semi-Private",
+        "Mommy & Me"
+      ],
+      "description": "Preferred lesson type"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Additional notes"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "waiting",
+        "contacted",
+        "booked",
+        "removed"
+      ],
+      "default": "waiting",
+      "description": "Waitlist status"
+    }
+  },
+  "required": [
+    "parent_name",
+    "parent_email"
+  ]
+}
