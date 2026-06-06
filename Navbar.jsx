@@ -1,4 +1,3 @@
-const db = globalThis.__B44_DB__ || { auth:{ isAuthenticated: async()=>false, me: async()=>null }, entities:new Proxy({}, { get:()=>({ filter:async()=>[], get:async()=>null, create:async()=>({}), update:async()=>({}), delete:async()=>({}) }) }), integrations:{ Core:{ UploadFile:async()=>({ file_url:'' }) } } };
 
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
@@ -25,13 +24,13 @@ export default function Navbar() {
           <img
             src="/images/logo-navbar.png"
             alt="Marco Polo Aquatics"
-            className="h-14 w-auto"
+            className="h-10 w-auto"
           />
 
         </Link>
 
         {/* Desktop */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-6 ml-auto">
           {links.map((link) => (
             <Link
               key={link.path}
