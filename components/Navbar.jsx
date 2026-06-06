@@ -1,4 +1,3 @@
-const db = globalThis.__B44_DB__ || { auth:{ isAuthenticated: async()=>false, me: async()=>null }, entities:new Proxy({}, { get:()=>({ filter:async()=>[], get:async()=>null, create:async()=>({}), update:async()=>({}), delete:async()=>({}) }) }), integrations:{ Core:{ UploadFile:async()=>({ file_url:'' }) } } };
 
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
@@ -23,13 +22,11 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-3 group">
           <img
-            src="/images/mascot-main.jpg"
+            src="/images/logo-navbar.png"
             alt="Marco Polo Aquatics"
-            className="h-10 w-10 rounded-lg object-cover"
+            className="h-14 w-auto"
           />
-          <span className="font-display font-bold text-lg tracking-tight text-secondary">
-            Marco Polo Aquatics
-          </span>
+
         </Link>
 
         {/* Desktop */}
@@ -40,8 +37,8 @@ export default function Navbar() {
               to={link.path}
               className={`text-sm font-medium transition-colors relative ${
                 isActive(link.path)
-                  ? "text-primary"
-                  : "text-secondary/70 hover:text-secondary"
+                  ? "text-cyan-400"
+                  : "text-white/80 hover:text-white"
               }`}
             >
               {link.label}
@@ -57,7 +54,7 @@ export default function Navbar() {
 
         {/* Mobile toggle */}
         <button
-          className="md:hidden text-secondary"
+          className="md:hidden text-white"
           onClick={() => setMobileOpen(!mobileOpen)}
         >
           {mobileOpen ? <X size={24} /> : <Menu size={24} />}
@@ -80,7 +77,7 @@ export default function Navbar() {
                   to={link.path}
                   onClick={() => setMobileOpen(false)}
                   className={`text-sm font-medium py-2 ${
-                    isActive(link.path) ? "text-primary" : "text-secondary/70"
+                    isActive(link.path) ? "text-cyan-400" : "text-white/80"
                   }`}
                 >
                   {link.label}

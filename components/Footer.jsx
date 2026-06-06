@@ -1,4 +1,3 @@
-const db = globalThis.__B44_DB__ || { auth:{ isAuthenticated: async()=>false, me: async()=>null }, entities:new Proxy({}, { get:()=>({ filter:async()=>[], get:async()=>null, create:async()=>({}), update:async()=>({}), delete:async()=>({}) }) }), integrations:{ Core:{ UploadFile:async()=>({ file_url:'' }) } } };
 
 import React from "react";
 import { Link } from "react-router-dom";
@@ -12,7 +11,7 @@ export default function Footer() {
           <div>
             <div className="flex items-center gap-3 mb-4">
               <img
-                src="/images/mascot-main.jpg"
+                src="/images/logo-navbar.png"
                 alt="Marco Polo Aquatics"
                 className="h-10 w-10 rounded-lg object-cover"
               />

@@ -1,11 +1,10 @@
-const db = globalThis.__B44_DB__ || { auth:{ isAuthenticated: async()=>false, me: async()=>null }, entities:new Proxy({}, { get:()=>({ filter:async()=>[], get:async()=>null, create:async()=>({}), update:async()=>({}), delete:async()=>({}) }) }), integrations:{ Core:{ UploadFile:async()=>({ file_url:'' }) } } };
 
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { GraduationCap, Shield, MapPin, ArrowRight } from "lucide-react";
 
-const LOGO_IMG = "/images/mascot-main.jpg";
+const LOGO_IMG = "/images/logo-large.png";
 const LESSONS_IMG = "/images/hero-group-lesson.jpg";
 const MASCOT_IMG = "/images/card-private-lesson.jpg";
 
