@@ -1,4 +1,3 @@
-const db = globalThis.__B44_DB__ || { auth:{ isAuthenticated: async()=>false, me: async()=>null }, entities:new Proxy({}, { get:()=>({ filter:async()=>[], get:async()=>null, create:async()=>({}), update:async()=>({}), delete:async()=>({}) }) }), integrations:{ Core:{ UploadFile:async()=>({ file_url:'' }) } } };
 
 import React from "react";
 import { motion } from "framer-motion";
@@ -16,10 +15,10 @@ function ImageCard({ src, alt, animateProps, delay = 0 }) {
       {...animateProps}
       viewport={{ once: true }}
       transition={{ delay }}
-      className="rounded-2xl overflow-hidden shadow-xl flex items-center justify-center bg-secondary/10"
-      style={{ minHeight: "350px" }}
+      className="rounded-2xl overflow-hidden shadow-xl"
+      style={{ aspectRatio: "4/3" }}
     >
-      <img src={src} alt={alt} className="w-full h-full object-cover object-center" />
+      <img src={src} alt={alt} className="w-full h-full object-cover" style={{ objectPosition: "center 60%" }} />
     </motion.div>
   );
 }

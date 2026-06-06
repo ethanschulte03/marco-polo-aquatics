@@ -13,7 +13,14 @@ import { supabase } from "../lib/supabase"
 import { sendEmail } from "../lib/email"
 
 const POOL_TYPES = ["In-ground", "Above-ground", "Community pool", "Other"]
-const TIME_OPTIONS = ["9:00 AM","10:00 AM","11:00 AM","12:00 PM","1:00 PM","2:00 PM","3:00 PM","4:00 PM","5:00 PM","6:00 PM","7:00 PM","8:00 PM"]
+const ALL_LIFEGUARD_TIMES = ["9:00 AM","10:00 AM","11:00 AM","12:00 PM","1:00 PM","2:00 PM","3:00 PM","4:00 PM","5:00 PM","6:00 PM","7:00 PM","8:00 PM"]
+const EVENING_ONLY = ["6:00 PM","7:00 PM","8:00 PM"]
+
+function getLifeguardTimes(date) {
+  if (!date) return ALL_LIFEGUARD_TIMES
+  const day = date.getDay()
+  return day === 5 ? EVENING_ONLY : ALL_LIFEGUARD_TIMES
+}
 
 export default function BookLifeguard() {
   const navigate = useNavigate()
@@ -116,7 +123,7 @@ export default function BookLifeguard() {
               <div className="mb-6">
                 <Label className="mb-2 block">Event Date *</Label>
                 <div className="flex justify-center">
-                  <Calendar mode="single" selected={form.event_date} onSelect={(date) => updateForm("event_date", date)} disabled={(date) => date < new Date()} className="rounded-xl border" />
+                  <Calendar mode="single" selected={form.event_date} onSelect={(date) => updateForm("event_date", date)} disabled={(date) => { const day = date.getDay(); const isPast = date < new Date(new Date().setHours(0,0,0,0)); const isAllowed = day === 5 || day === 6 || day === 0; return isPast || !isAllowed; }} className="rounded-xl border" />
                 </div>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -124,14 +131,14 @@ export default function BookLifeguard() {
                   <Label>Start Time *</Label>
                   <Select value={form.event_start_time} onValueChange={(val) => updateForm("event_start_time", val)}>
                     <SelectTrigger><SelectValue placeholder="Select start" /></SelectTrigger>
-                    <SelectContent>{TIME_OPTIONS.map((t) => <SelectItem key={t} value={t}>{t}</SelectItem>)}</SelectContent>
+                    <SelectContent>{getLifeguardTimes(form.event_date).map((t) => <SelectItem key={t} value={t}>{t}</SelectItem>)}</SelectContent>
                   </Select>
                 </div>
                 <div className="space-y-2">
                   <Label>End Time *</Label>
                   <Select value={form.event_end_time} onValueChange={(val) => updateForm("event_end_time", val)}>
                     <SelectTrigger><SelectValue placeholder="Select end" /></SelectTrigger>
-                    <SelectContent>{TIME_OPTIONS.map((t) => <SelectItem key={t} value={t}>{t}</SelectItem>)}</SelectContent>
+                    <SelectContent>{getLifeguardTimes(form.event_date).map((t) => <SelectItem key={t} value={t}>{t}</SelectItem>)}</SelectContent>
                   </Select>
                 </div>
               </div>

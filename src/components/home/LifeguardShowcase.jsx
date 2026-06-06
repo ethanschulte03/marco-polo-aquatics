@@ -1,12 +1,11 @@
-const db = globalThis.__B44_DB__ || { auth:{ isAuthenticated: async()=>false, me: async()=>null }, entities:new Proxy({}, { get:()=>({ filter:async()=>[], get:async()=>null, create:async()=>({}), update:async()=>({}), delete:async()=>({}) }) }), integrations:{ Core:{ UploadFile:async()=>({ file_url:'' }) } } };
 
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
-const IMG_LIFEGUARD = "/images/hero-lifeguard.jpg";
-const IMG_MASCOT = "/images/mascot-main.jpg";
+const IMG_LIFEGUARD = "/images/banner-lifeguard.jpg";
+const IMG_WALKING = "/images/lifeguard-walking.jpg";
 
 export default function LifeguardShowcase() {
   return (
@@ -30,36 +29,33 @@ export default function LifeguardShowcase() {
             <Link
               to="/book-lifeguard"
               className="ripple-btn inline-flex items-center gap-2 bg-accent text-accent-foreground px-8 py-3 rounded-full font-heading font-semibold hover:bg-accent/90 transition-all">
-              
               Book a Lifeguard
               <ArrowRight size={18} />
             </Link>
           </motion.div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="flex flex-col gap-4">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="rounded-2xl overflow-hidden shadow-xl flex items-center justify-center bg-secondary/10"
-              style={{ minHeight: "350px" }}>
-              
-              <img src={IMG_LIFEGUARD} alt="Marco Polo Aquatics Lifeguard" className="w-full h-full object-cover object-center my-20" />
+              className="rounded-2xl overflow-hidden shadow-xl"
+              style={{ aspectRatio: "16/7" }}>
+              <img src={IMG_LIFEGUARD} alt="Marco Polo Aquatics Lifeguard" className="w-full h-full object-cover" style={{ objectPosition: "center 30%" }} />
             </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="rounded-2xl overflow-hidden shadow-xl flex items-center justify-center bg-secondary/10"
-              style={{ minHeight: "350px" }}>
-              
-              <img src={IMG_MASCOT} alt="Marco Polo Aquatics" className="w-full h-full object-cover object-center" />
+              className="rounded-2xl overflow-hidden shadow-xl"
+              style={{ aspectRatio: "16/7" }}>
+              <img src={IMG_WALKING} alt="Marco Polo Aquatics Lifeguard Walking" className="w-full h-full object-cover" style={{ objectPosition: "center 20%" }} />
             </motion.div>
           </div>
         </div>
       </div>
-    </section>);
-
+    </section>
+  );
 }

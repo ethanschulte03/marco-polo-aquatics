@@ -234,7 +234,7 @@ export default function BookLessons() {
               <div>
                 <label className="block font-heading font-semibold text-secondary text-lg mb-4">Pick a Date</label>
                 <div className="flex justify-center">
-                  <Calendar mode="single" selected={form.lesson_date} onSelect={(date) => { updateForm("lesson_date", date); updateForm("lesson_time", "") }} disabled={(date) => date < new Date() || date.getDay() === 0} className="rounded-xl border" />
+                  <Calendar mode="single" selected={form.lesson_date} onSelect={(date) => { updateForm("lesson_date", date); updateForm("lesson_time", "") }} disabled={(date) => { const day = date.getDay(); const isPast = date < new Date(new Date().setHours(0,0,0,0)); return isPast || day === 6; }} className="rounded-xl border" />
                 </div>
               </div>
               <TimeSlotPicker value={form.lesson_time} onChange={(time) => updateForm("lesson_time", time)} date={form.lesson_date} lessonDuration={form.lesson_duration === "60 min" ? 60 : 30} />

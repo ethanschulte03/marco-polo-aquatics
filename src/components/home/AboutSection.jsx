@@ -1,4 +1,3 @@
-const db = globalThis.__B44_DB__ || { auth:{ isAuthenticated: async()=>false, me: async()=>null }, entities:new Proxy({}, { get:()=>({ filter:async()=>[], get:async()=>null, create:async()=>({}), update:async()=>({}), delete:async()=>({}) }) }), integrations:{ Core:{ UploadFile:async()=>({ file_url:'' }) } } };
 
 import React from "react";
 import { motion } from "framer-motion";
@@ -28,11 +27,12 @@ export default function AboutSection() {
                   className="relative w-64 sm:w-72 rounded-2xl shadow-2xl" />
                 
               </div>
-              <div className="rounded-2xl overflow-hidden shadow-xl w-64 sm:w-72 flex items-center justify-center bg-secondary/40" style={{ minHeight: "350px" }}>
+              <div className="rounded-2xl overflow-hidden shadow-xl w-64 sm:w-72" style={{ aspectRatio: "3/4" }}>
                 <img
                   src={MASCOT_LIFEGUARD_IMG}
                   alt="Marco Polo Lifeguard"
-                  className="w-full h-full object-contain object-center"
+                  className="w-full h-full object-cover"
+                  style={{ objectPosition: "center 15%" }}
                 />
               </div>
               

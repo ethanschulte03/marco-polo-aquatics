@@ -135,3 +135,10 @@
   border-bottom: 1px solid rgba(34, 211, 238, 0.15);
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
 }
+/* NAV LINK COLORS */
+nav a {
+  color: white !important;
+}
+nav a:hover {
+  color: #22d3ee !important;
+}

@@ -7,7 +7,18 @@ import { supabase } from "../../lib/supabase"
 const ALL_SLOTS = [
   "9:00 AM", "10:00 AM", "11:00 AM", "12:00 PM",
   "1:00 PM", "2:00 PM", "3:00 PM", "4:00 PM", "5:00 PM",
+  "6:00 PM", "7:00 PM",
 ]
+
+// Lessons: Sundays all day, weekdays after 6pm only
+function getAvailableSlots(date) {
+  if (!date) return []
+  const day = date.getDay()
+  const isSunday = day === 0
+  if (isSunday) return ALL_SLOTS
+  // Weekdays (Mon-Fri): only 6pm and 7pm
+  return ["6:00 PM", "7:00 PM"]
+}
 
 function slotToMinutes(slot) {
   const [time, period] = slot.split(" ")
@@ -68,7 +79,7 @@ export default function TimeSlotPicker({ value, onChange, date, lessonDuration }
         <p className="text-sm text-muted-foreground">Checking availability...</p>
       ) : (
         <div className="grid grid-cols-3 gap-3">
-          {ALL_SLOTS.map((slot, i) => {
+          {getAvailableSlots(date).map((slot, i) => {
             const blocked = isBlocked(slot)
             return (
               <motion.button
@@ -94,7 +105,7 @@ export default function TimeSlotPicker({ value, onChange, date, lessonDuration }
           })}
         </div>
       )}
-      {ALL_SLOTS.every(isBlocked) && !loading && (
+      {getAvailableSlots(date).every(isBlocked) && !loading && (
         <div className="text-center py-4">
           <p className="text-sm text-muted-foreground mb-3">No available slots on this date.</p>
           <a href="/waitlist" className="text-primary text-sm font-medium hover:underline">→ Join the waitlist for this date</a>
