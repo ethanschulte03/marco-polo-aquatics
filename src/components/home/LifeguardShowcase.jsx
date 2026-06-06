@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
 const IMG_PARTY = "/images/hero-birthday-party.jpg";
-const IMG_PATROL = "/images/card-lifeguard-patrol.jpg";
+const IMG_PATROL = "/images/hero-lifeguard.jpg";
 
 export default function LifeguardShowcase() {
   return (
@@ -49,7 +49,7 @@ export default function LifeguardShowcase() {
               transition={{ delay: 0.2 }}
               className="rounded-2xl overflow-hidden shadow-xl"
               style={{ aspectRatio: "16/7" }}>
-              <img src={IMG_PATROL} alt="Marco Polo patrolling the pool" className="w-full h-full object-cover" style={{ objectPosition: "center center" }} />
+              <img src={IMG_PATROL} alt="Marco Polo lifeguarding the pool" className="w-full h-full object-cover" style={{ objectPosition: "center 20%" }} />
             </motion.div>
           </div>
         </div>
