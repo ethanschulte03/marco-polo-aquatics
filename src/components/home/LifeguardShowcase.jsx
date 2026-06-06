@@ -1,11 +1,10 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 
-const IMG_LIFEGUARD = "/images/banner-lifeguard.jpg";
-const IMG_WALKING = "/images/lifeguard-walking.jpg";
+const IMG_PARTY = "/images/hero-birthday-party.jpg";
+const IMG_PATROL = "/images/card-lifeguard-patrol.jpg";
 
 export default function LifeguardShowcase() {
   return (
@@ -16,7 +15,6 @@ export default function LifeguardShowcase() {
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}>
-            
             <h2 className="font-display text-3xl lg:text-4xl font-bold text-secondary mb-4">
               Professional Lifeguard Services
             </h2>
@@ -42,7 +40,7 @@ export default function LifeguardShowcase() {
               transition={{ delay: 0.1 }}
               className="rounded-2xl overflow-hidden shadow-xl"
               style={{ aspectRatio: "16/7" }}>
-              <img src={IMG_LIFEGUARD} alt="Marco Polo Aquatics Lifeguard" className="w-full h-full object-cover" style={{ objectPosition: "center 30%" }} />
+              <img src={IMG_PARTY} alt="Marco Polo lifeguarding a birthday party" className="w-full h-full object-cover" style={{ objectPosition: "center 30%" }} />
             </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -51,7 +49,7 @@ export default function LifeguardShowcase() {
               transition={{ delay: 0.2 }}
               className="rounded-2xl overflow-hidden shadow-xl"
               style={{ aspectRatio: "16/7" }}>
-              <img src={IMG_WALKING} alt="Marco Polo Aquatics Lifeguard Walking" className="w-full h-full object-cover" style={{ objectPosition: "center 20%" }} />
+              <img src={IMG_PATROL} alt="Marco Polo patrolling the pool" className="w-full h-full object-cover" style={{ objectPosition: "center center" }} />
             </motion.div>
           </div>
         </div>
