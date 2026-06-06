@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 
 const IMGS = [
-  { src: "/images/card-floating.jpg",      alt: "Back float lesson" },
-  { src: "/images/card-kickboard.jpg",     alt: "Kickboard lesson" },
-  { src: "/images/card-group-lesson.jpg",  alt: "Group swim lesson" },
-  { src: "/images/card-underwater.jpg",    alt: "Underwater skills" },
+  { src: "/images/card-backfloat-new.jpg",     alt: "Marco Polo teaching back float" },
+  { src: "/images/card-swimming-highfive.jpg",  alt: "Marco Polo swimming and high five" },
+  { src: "/images/card-wall-kicks.jpg",         alt: "Kids learning wall kicks" },
+  { src: "/images/card-diving.jpg",             alt: "Marco Polo diving in" },
 ];
 
 export default function LessonsShowcase() {
